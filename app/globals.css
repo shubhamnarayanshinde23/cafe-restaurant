@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-body: Arial, Helvetica, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0D0D0D;
+    --foreground: #ffffff;
+  }
+}
+html {
+  scroll-behavior: auto;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  overscroll-behavior: none;
+  cursor: none;
+}
+
+a,
+button {
+  cursor: none;
+}
+
+/* ==========================
+   Coffee Steam Animation
+========================== */
+
+.steam {
+  position: absolute;
+  width: 12px;
+  height: 80px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    to top,
+    rgba(255,255,255,0),
+    rgba(255,255,255,.45)
+  );
+
+  filter: blur(10px);
+
+  animation: steam 3.5s infinite ease-in-out;
+}
+
+.steam1 {
+  left: -20px;
+}
+
+.steam2 {
+  left: 0;
+  animation-delay: .7s;
+}
+
+.steam3 {
+  left: 20px;
+  animation-delay: 1.4s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body,
+  a,
+  button {
+    cursor: none;
+  }
+}
+
+@keyframes steam {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(.5);
+  }
+
+  30% {
+    opacity: .6;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) scale(1.5);
+  }
+}
